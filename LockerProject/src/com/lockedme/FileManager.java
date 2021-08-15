@@ -6,6 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class contains methods to manage files
+ * 
+ * @author Durga Pathak
+ *
+ */
 public class FileManager 
 {
 	/**
@@ -24,6 +30,9 @@ public class FileManager
 		
 		// Collect the name of each file in the given folder location
 		List<String> fileNames = Arrays.asList(listOfFiles).stream().map(lof -> lof.getName()).collect(Collectors.toList());
+		
+		// Sort files in alphabetical order
+		fileNames.stream().sorted();
 		return fileNames;
 		
 	}
@@ -68,7 +77,7 @@ public class FileManager
 	 * @param fileName
 	 * @return boolean 
 	 */
-	public static boolean deleteFile(String folderLocation, String fileName) 
+	public static boolean deleteFile(final String folderLocation, final String fileName) 
 	{
 		// File to delete
 		File file = new File(folderLocation + "\\" + fileName);
@@ -97,7 +106,7 @@ public class FileManager
 	 */
 	public static boolean searchFile(final String folderLocation, final String fileName) {
 		
-		// Create file object with fiven folder location and file name
+		// Create file object with given folder location and file name
 		File file = new File(folderLocation + "\\" + fileName);
 		
 		// Return if file exists or not
